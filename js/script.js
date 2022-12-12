@@ -1,7 +1,4 @@
 function createBombsArray (min, max){
-    
-
-
     let bombs = []
     let i=0;
     while(i < 16){
@@ -21,7 +18,6 @@ function createBombsArray (min, max){
 function createNewGame(){
     let difficulty = parseInt(document.getElementById('level').value);
 
-    let arrayBombs=[];
     
 
     let cellsNumber;
@@ -46,10 +42,10 @@ function createNewGame(){
             break
     }
 
-    arrayBombs = createBombsArray(1, cellsNumber)
+    let arrayBombs = createBombsArray(1, cellsNumber)
     console.log(arrayBombs);
 
-    generateGameGrid(cellsNumber, cellsPerRow);
+    generateGameGrid(arrayBombs, cellsNumber, cellsPerRow);
 }
 
 function createSingleCell(num, cells_per_row){
@@ -72,7 +68,7 @@ function createSingleCell(num, cells_per_row){
 
 
 
-function generateGameGrid(cellsNumber, cells_per_row){
+function generateGameGrid(bombs, cellsNumber, cells_per_row){
     
     document.querySelector('.container-campo').innerHTML= '';
     
@@ -84,6 +80,10 @@ function generateGameGrid(cellsNumber, cells_per_row){
         cell.addEventListener('click', function(){
             this.classList.add('click');
             console.log('hai cliccato il numero '+ this.innerText)
+            if(bombs.includes(parseInt(this.innerText))){
+                alert('hai cliccato una bomba' + this.innerText)
+                this.classList.add('bomb');
+            }
         })
         grid.appendChild(cell);
     }
