@@ -85,7 +85,7 @@ function generateGameGrid(bombs, cellsNumber, cells_per_row){
                 alert('hai cliccato una bomba')
                 this.classList.add('bomb');
                 grid.classList.add('events-none')
-                alert('Il tuo punteggio è : ' + goodCells)
+                alert('Il tuo punteggio è : ' +goodCells)
             }
 
             else{
