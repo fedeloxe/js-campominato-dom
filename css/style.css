@@ -55,4 +55,7 @@ header{
     background-color: red;
 }
 
+.events-none{
+    pointer-events: none;
+}
 

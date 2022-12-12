@@ -83,6 +83,7 @@ function generateGameGrid(bombs, cellsNumber, cells_per_row){
             if(bombs.includes(parseInt(this.innerText))){
                 alert('hai cliccato una bomba' + this.innerText)
                 this.classList.add('bomb');
+                grid.classList.add('events-none')
             }
         })
         grid.appendChild(cell);
